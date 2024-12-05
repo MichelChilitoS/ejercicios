@@ -1,0 +1,14 @@
+name: CI/CD
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Descargando el codigo
+              uses: actions/checkout@v3
+            
+            - name: Imprimiendo dockerfile
+              run: cat Dockerfile
