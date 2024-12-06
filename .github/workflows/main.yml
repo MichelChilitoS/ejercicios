@@ -34,9 +34,9 @@ jobs:
               run: |
                 echo "Creando la llave en el server"
                 mkdir -p ~/.ssh
-                echo "${{ secrets.SSH_KEY }}" > ~/.ssh/ssh_rsa
-                chmod 600 ~/.ssh/ssh_rsa
+                echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
                 ssh-keyscan -H ${{ secrets.ip_server }} > ~/.ssh/known_hosts
-                ssh -i ~/.ssh/ssh_rsa ${{ secrets.user }}@${{ secrets.ip_server }} << 'EOF'
+                ssh -i ~/.ssh/id_rsa ${{ secrets.user }}@${{ secrets.ip_server }} << 'EOF'
                   ls 
                 EOF
