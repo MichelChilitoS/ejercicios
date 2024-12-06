@@ -36,7 +36,7 @@ jobs:
                 mkdir -p ~/.ssh
                 echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
                 chmod 600 ~/.ssh/id_rsa
-                ssh-keyscan -H ${{ secrets.ip_server }} > ~/.ssh/known_hosts
+                ssh-keyscan -H ${{ secrets.ip_server }} >> ~/.ssh/known_hosts
                 ssh -i ~/.ssh/id_rsa ${{ secrets.user }}@${{ secrets.ip_server }} << 'EOF'
                   ls 
                 EOF
